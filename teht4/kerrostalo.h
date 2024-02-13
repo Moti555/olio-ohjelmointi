@@ -1,19 +1,14 @@
 #ifndef KERROSTALO_H
 #define KERROSTALO_H
-#include "katutaso.h"
-#include "kerros.h"
 
-
-class Kerrostalo
-{
+class Kerrostalo {
 public:
     Kerrostalo();
-    double laskeKulutus(double);
+    double laskeKulutus(double hinta);
 private:
-    Katutaso eka;
-    Kerros toka;
-    Kerros kolmas;
-
+    Katutaso *eka;
+    Kerros *toka;
+    Kerros *kolmas;
 };
 
 #endif // KERROSTALO_H

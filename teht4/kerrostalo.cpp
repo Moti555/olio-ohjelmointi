@@ -1,6 +1,6 @@
 #include "kerrostalo.h"
+#include <iostream>
 
-Kerrostalo::Kerrostalo()
-{
-    cout<<"Kerrostalo luotu"<<endl;
+Kerrostalo::Kerrostalo() {
+    std::cout << "Kerrostalo luotu" << std::endl;
 }

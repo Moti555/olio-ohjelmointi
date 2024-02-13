@@ -1,19 +1,17 @@
 #include "kerros.h"
 
-Kerros::Kerros()
-{
-    cout<<"Kerros luotu"<<endl;
-    cout<<"Maaritetaan 4kpl kerroksen asuntoja"<<endl;
-    as1.maaritaAsunnot();
-    as2.maaritaAsunnot();
-    as3.maaritaAsunnot();
-    as4.maaritaAsunnot();
-    laskeKulutus(1);
+Kerros::Kerros() : as1(new Asunto()), as2(new Asunto()), as3(new Asunto()), as4(new Asunto()) {}
+
+void Kerros::maaritaAsunnot(int asukkaidenMaara1, double neliomaara1, int asukkaidenMaara2, double neliomaara2,
+                            int asukkaidenMaara3, double neliomaara3, int asukkaidenMaara4, double neliomaara4) {
+    as1->maaritaAsunnot(asukkaidenMaara1, neliomaara1);
+    as2->maaritaAsunnot(asukkaidenMaara2, neliomaara2);
+    as3->maaritaAsunnot(asukkaidenMaara3, neliomaara3);
+    as4->maaritaAsunnot(asukkaidenMaara4, neliomaara4);
 }
 
-double Kerros::laskeKulutus(double asunnonhinta){
-    double katutasokulutus = Katutaso::laskeKulutus(1);
-    double kerroskulutus = as1.laskeKulutus(1) + as2.laskeKulutus(1) + as3.laskeKulutus(1) + as4.laskeKulutus(1);
-    cout<<"Katutason ja kerroksen yhteis kulutus kun hinta on "<<asunnonhinta<< " = "<<katutasokulutus + kerroskulutus<<endl;
-
+double Kerros::laskeKulutus(double hinta) const {
+    double kulutus = (as1->annaAsukasMaara() * as1->annaNeliot() * hinta) + (as2->annaAsukasMaara() * as2->annaNeliot() * hinta) +
+                     (as3->annaAsukasMaara() * as3->annaNeliot() * hinta) + (as4->annaAsukasMaara() * as4->annaNeliot() * hinta);
+    return kulutus;
 }

@@ -1,10 +1,10 @@
 #include "kerrostalo.h"
-
-using namespace std;
-
+#include "asunto.h"
 
 int main() {
-    Kerrostalo kerrostalo;
+    Kerrostalo *kerrostalo = new Kerrostalo();
+
+    delete kerrostalo;
 
     return 0;
 }

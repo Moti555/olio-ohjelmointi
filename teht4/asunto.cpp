@@ -1,19 +1,16 @@
 #include "asunto.h"
-#include <iostream>
 
+Asunto::Asunto() : asukasMaara(0), neliot(0.0) {}
 
-Asunto::Asunto() {
-    cout << "Asunto luotu" << endl;
+void Asunto::maaritaAsunnot(int asukkaidenMaara, double neliomaara) {
+    asukasMaara = asukkaidenMaara;
+    neliot = neliomaara;
 }
 
-void Asunto::maaritaAsunnot() {
-    asukasMaara = 2;
-    neliot = 100;
-
-    cout << "Asunnot maaritelty: Asukasmaara: " << asukasMaara << " Neliot:" << neliot<<endl;
-
+int Asunto::annaAsukasMaara() const {
+    return asukasMaara;
 }
 
-double Asunto::laskeKulutus(double asunnonhinta){
-    return asukasMaara * neliot * asunnonhinta;
+double Asunto::annaNeliot() const {
+    return neliot;
 }

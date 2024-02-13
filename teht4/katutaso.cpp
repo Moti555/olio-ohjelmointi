@@ -1,14 +1,13 @@
 #include "katutaso.h"
 
-Katutaso::Katutaso(){
-    cout<<"Katutaso luotu"<<endl;
-    cout<<"Maaritetaan 2kpl katutason asuntoja"<<endl;
-    as1.maaritaAsunnot();
-    as2.maaritaAsunnot();
+Katutaso::Katutaso() : as1(new Asunto()), as2(new Asunto()) {}
+
+void Katutaso::maaritaAsunnot(int asukkaidenMaara1, double neliomaara1, int asukkaidenMaara2, double neliomaara2) {
+    as1->maaritaAsunnot(asukkaidenMaara1, neliomaara1);
+    as2->maaritaAsunnot(asukkaidenMaara2, neliomaara2);
 }
 
-double Katutaso::laskeKulutus(double hinta){
-    double kulutus = (as1.asukasMaara * as1.neliot * hinta) + (as2.asukasMaara * as2.neliot * hinta);
-
+double Katutaso::laskeKulutus(double hinta) const {
+    double kulutus = (as1->annaAsukasMaara() * as1->annaNeliot() * hinta) + (as2->annaAsukasMaara() * as2->annaNeliot() * hinta);
     return kulutus;
 }
